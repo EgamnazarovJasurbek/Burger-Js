@@ -101,7 +101,7 @@ addCart.addEventListener('click', function () {
 
     for (const key in food) {
         // console.log(food[key].name); // object
-
+        
         if (food[key].amount) {
             menu += `${food[key].name} ${food[key].amount}x ${food[key].price} = ${food[key].calcsum} \n\n`
             totalPrice += food[key].calcsum
