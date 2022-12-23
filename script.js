@@ -1,7 +1,7 @@
 let food = {
     plainBurger: {
         name: "GAMBURGER",
-        price: 13000,
+        price: 10000,
         amount: 0,
         kcall: 450,
         get calcsum() {
@@ -13,7 +13,7 @@ let food = {
     },
     freshBurger: {
         name: "GAMBURGER FRESH",
-        price: 22000,
+        price: 20500,
         amount: 0,
         kcall: 650,
         get calcsum() {
