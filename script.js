@@ -101,7 +101,7 @@ addCart.addEventListener('click', function () {
 
     for (const key in food) {
         // console.log(food[key].name); // object
-        
+
         if (food[key].amount) {
             menu += `${food[key].name} ${food[key].amount}x ${food[key].price} = ${food[key].calcsum} \n\n`
             totalPrice += food[key].calcsum
@@ -134,67 +134,65 @@ receiptWindowBtn.addEventListener('click', function (e) {
 
 
 // ======================================================= 1 dan 100gacha autoTimer =======================================================
-// let timerExtra = document.querySelector('.header__timer-extra')
-// let stopped;
-// let stopping;
+let timerExtra = document.querySelector('.header__timer-extra')
+let headerTimer = document.querySelector('.header__timer')
+let stopped;
+let stopping;
 
 
-// function autoTimer() {
-//     stopped = setTimeout(() => {
-//         autoTimer()
-//         timerExtra.innerHTML++
+function autoTimer() {
+    stopped = setTimeout(() => {
+        autoTimer()
+        timerExtra.innerHTML++
+        timerExtra.style.color = 'black'
+        if (timerExtra.innerHTML >= 50) {
+            timerExtra.style.color = 'white'
+            headerTimer.style.color = 'black' 
+            clearInterval(stopped)
+            autoTimeTwo()
 
-//         if (timerExtra.innerHTML >= 50) {
-//             clearInterval(stopped)
-//             autoTimeTwo()
-
-//         }
-//     }, 30);
-// }   
-// autoTimer()
+        }
+    }, 60);
+}   
+autoTimer()
 
 
-// function autoTimeTwo() {
-//     stopping = setTimeout(() => {
-//         autoTimeTwo()
-//         timerExtra.innerHTML++
+function autoTimeTwo() {
+    stopping = setTimeout(() => {
+        autoTimeTwo()
+        timerExtra.innerHTML++
 
-//         if(timerExtra.innerHTML >= 60){
-//             clearInterval(jass)
-//             autoTimerNext()
-//         }
+        if(timerExtra.innerHTML >= 60){
+            headerTimer.style.color = 'black' 
+            clearInterval(stopping)
+            autoTimerNext()
+        }
 
-//     }, 190);
-// }
+    }, 190);
+}
 
-// function autoTimerNext() {
-//     setTimeout(() => {
-//         autoTimerNext()
-//         timerExtra.innerHTML++
+function autoTimerNext() {
+    setTimeout(() => {
+        autoTimerNext()
+        timerExtra.innerHTML++
 
-//         if (timerExtra.innerHTML == 100) {
-//             timerExtra.innerHTML = 0
-//             autoTimer()
-//         }
+        if (timerExtra.innerHTML == 100) {
+            timerExtra.innerHTML = 0
+            headerTimer.style.color = 'white' 
+            autoTimer()
+        }
 
-//     }, 100);
-// }
+    }, 100);
+}
 
 // =======================================================
 
-// <!-- 
-// Uy-ishi
-// .main__product-info ga bosilganda .active klasi orqali .view bloki paydo boladi.
 
-// .main__product-info src atributidan img danniylari olinib, setAttribute yordamida .view blokiga rasm joylanadi.
-
-// X bosilganda esa .view yopiladi
-// -->
 
 let infoImg = [...document.querySelectorAll('.main__product-info')]
 
 for (let i = 0; i < infoImg.length; i++) {
-    infoImg[i].addEventListener('dblclick', function(e) {
+    infoImg[i].addEventListener('click', function(e) {
         showImg(this)
     })
 }
